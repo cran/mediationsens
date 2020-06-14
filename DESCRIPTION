@@ -1,13 +1,12 @@
 Package: mediationsens
-Version: 0.0.1
-Date: 2020-05-18
+Version: 0.0.2
+Date: 2020-05-26
 Title: Simulation-Based Sensitivity Analysis for Causal Mediation
         Studies
 Author: Xu Qin and Fan Yang
 Maintainer: Xu Qin <xuqin@pitt.edu>
 Depends: mediation, distr
-Description: We implement the simulation-based sensitivity analysis for causal mediation studies using the methods 
- proposed by Qin and Yang (2020). It numerically and graphically evaluates the sensitivity of causal mediation analysis results 
+Description: Simulation-based sensitivity analysis for causal mediation studies. It numerically and graphically evaluates the sensitivity of causal mediation analysis results 
  to the presence of unmeasured pretreatment confounding. The proposed method has primary advantages over existing methods. 
  First, using an unmeasured pretreatment confounder conditional associations with the treatment, mediator, and outcome as 
  sensitivity parameters, the method enables users to intuitively assess sensitivity in reference to prior knowledge about the 
@@ -18,6 +17,6 @@ Description: We implement the simulation-based sensitivity analysis for causal m
 License: GPL-2
 RoxygenNote: 7.1.0
 NeedsCompilation: no
-Packaged: 2020-05-19 01:06:45 UTC; Xu Qin
+Packaged: 2020-06-14 01:16:45 UTC; Xu Qin
 Repository: CRAN
-Date/Publication: 2020-05-26 22:20:10 UTC
+Date/Publication: 2020-06-14 17:40:02 UTC

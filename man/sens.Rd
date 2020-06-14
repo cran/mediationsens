@@ -9,7 +9,7 @@ sens(
   t.rand = TRUE,
   t,
   m,
-  X,
+  covariates,
   scale.y,
   scale.m,
   scale.U,
@@ -36,7 +36,7 @@ sens(
 
 \item{m}{The name of the mediator variable (string).}
 
-\item{X}{A vector of variable names (string) of pretreatment confounders, which will be included in the propensity score model. Transform each categorical variable into multiple binary indicators before specifying X.}
+\item{covariates}{A vector of variable names (string) of pretreatment confounders, which will be included in the propensity score model. Transform each categorical variable into multiple binary indicators before specifying X.}
 
 \item{scale.y}{The scale of the outcome variable (string). Can be "continuous" or "binary".}
 
@@ -82,14 +82,16 @@ This function is used to evaluate the sensitivity of the estimated natural direr
 \examples{
 library(mediation)
 data(jobs)
-# Generate a binary outcome based on the median of the continuous outcome.
+# Generate a binary outcome based on the median of the continuous
+# outcome.
 jobs$depress2_dich[jobs$depress2 >= median(jobs$depress2)] = 1
 jobs$depress2_dich[jobs$depress2 < median(jobs$depress2)] = 0
 
-sens.results = sens(y = "depress2", t = "treat", m = "job_seek", X = c("econ_hard", 
-    "depress1", "sex", "age"), scale.y = "continuous", scale.m = "continuous", 
-    scale.U = "binary", range.b.m = c(-2, 2), range.b.y = c(-1, 1), grid.b.y = 2, 
-    grid.b.m = 1, p.u = 0.5, iter = 10, nsim = 10, est = "rmpw", B = 2, data = jobs)
+sens.results = sens(y = "depress2", t = "treat", m = "job_seek", 
+    covariates = c("econ_hard", "depress1", "sex", "age"), scale.y = "continuous", 
+    scale.m = "continuous", scale.U = "binary", range.b.m = c(-2, 
+        2), range.b.y = c(-1, 1), grid.b.y = 2, grid.b.m = 1, p.u = 0.5, 
+    iter = 10, nsim = 10, est = "rmpw", B = 2, data = jobs)
 }
 \references{
 Qin, X., & Yang, F. (2020). Simulation-Based Sensitivity Analysis for Causal Mediation Studies.
